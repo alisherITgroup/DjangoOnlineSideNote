@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Dictionary
-import pyttsx3
 
 
 # Create your views here.
