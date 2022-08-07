@@ -9,8 +9,6 @@ def index(request):
         # result = Dictionary.objects.filter().all()
         result = Dictionary.objects.filter(english__contains=word).all() or Dictionary.objects.filter(
             uzbek__contains=word).all()
-        for i in result:
-            print(f'{i.english} - {i.uzbek}')
     else:
         result = ''
     return render(request, 'index.html', {'word': word, 'result': result})
