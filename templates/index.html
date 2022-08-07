@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div class="ui container">
+        <div class="ui raised very padded text segment">
+
+            <div class="inline" style="width: 100%;">
+                <div class="ui massive form search">
+                    <form method="GET" action="/" class="ui icon input" style="width: 100%;">
+                        <input name="word" class="prompt" type="text" placeholder="Enter a word">
+                        <i class="search link icon"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="ui piled segment">
+            <h4 class="ui header">Result</h4>
+            <table class="ui celled large olive table">
+                <thead>
+                    <tr>
+                        <th><i class="united kingdom flag"></i> English</th>
+                        <th><i class="uzbekistan flag"></i> Uzbek</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% if result %}
+                    {% for data in result %}
+                    <tr>
+                        <td>{{ data.english | title }}</td>
+                        <td>{{ data.uzbek | title }}</td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+{% endblock content %}
